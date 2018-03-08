@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Double Q Blog">
 <meta property="og:description" content="轻松获得发表在多久前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-31T08:26:09.000Z">
+<meta property="og:updated_time" content="2018-03-08T09:17:10.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发表状态时间和当前时间比较">
 <meta name="twitter:description" content="轻松获得发表在多久前">
@@ -403,44 +403,7 @@
       
         <h3 id="看微信朋友圈都有几分钟前，几小时前等："><a href="#看微信朋友圈都有几分钟前，几小时前等：" class="headerlink" title="看微信朋友圈都有几分钟前，几小时前等："></a>看微信朋友圈都有几分钟前，几小时前等：</h3><p>因为有朋友要用到了，特意写了一个以供大家使用</p>
 <p>代码很简单，贴出来供参考</p>
-<p>里面的日期可以随意换 然后返回你想要的</p>
-<p>– (NSString *)gettime{</p>
-<pre><code>NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-
-[dateFormatter setDateFormat:@&quot;yyyy-MM-dd HH:mm:ss&quot;];
-
-NSDate *date1 = [dateFormatter dateFromString:@&quot;2016-04-12 14:44:44&quot;];
-
-NSDate *date = [NSDate date];
-
-NSString *curdate=[dateFormatter stringFromDate:date];
-
-NSDate *date2 = [dateFormatter dateFromString:curdate];
-
-NSTimeInterval time=[date2 timeIntervalSinceDate:date1];
-
-NSString *timeStr;
-
-if ((int)time &lt; 60) {
-
-    timeStr= [[NSString alloc] initWithFormat:@&quot;%i秒前&quot;,(int)time];
-
-}else if ((int)time &lt; 3600){
-
-    timeStr= [[NSString alloc] initWithFormat:@&quot;%i分钟前&quot;, (int)time/60];
-
-}else if ((int)time &lt; 3600*24){
-
-    timeStr= [[NSString alloc] initWithFormat:@&quot;%i小时前&quot;, (int)time/3600];
-
-}else{
-
-    timeStr= [[NSString alloc] initWithFormat:@&quot;%i天前&quot;, (int)time/3600/24];
-
-}
-
-return timeStr;
-</code></pre><p>}</p>
+<p>里面的日期可以随意换 然后返回你想要的<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)gettime&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *dateFormatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line"></span><br><span class="line">    [dateFormatter setDateFormat:<span class="string">@"yyyy-MM-dd HH:mm:ss"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDate</span> *date1 = [dateFormatter dateFromString:<span class="string">@"2016-04-12 14:44:44"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDate</span> *date = [<span class="built_in">NSDate</span> date];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *curdate=[dateFormatter stringFromDate:date];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSDate</span> *date2 = [dateFormatter dateFromString:curdate];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time=[date2 timeIntervalSinceDate:date1];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *timeStr;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((<span class="keyword">int</span>)time &lt; <span class="number">60</span>) &#123;</span><br><span class="line"></span><br><span class="line">        timeStr= [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"%i秒前"</span>,(<span class="keyword">int</span>)time];</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">int</span>)time &lt; <span class="number">3600</span>)&#123;</span><br><span class="line"></span><br><span class="line">        timeStr= [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"%i分钟前"</span>, (<span class="keyword">int</span>)time/<span class="number">60</span>];</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">int</span>)time &lt; <span class="number">3600</span>*<span class="number">24</span>)&#123;</span><br><span class="line"></span><br><span class="line">        timeStr= [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"%i小时前"</span>, (<span class="keyword">int</span>)time/<span class="number">3600</span>];</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">        timeStr= [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"%i天前"</span>, (<span class="keyword">int</span>)time/<span class="number">3600</span>/<span class="number">24</span>];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> timeStr;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
