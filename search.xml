@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[10张前端基础知识（超全）思维导图]]></title>
+    <url>%2F2018%2F03%2F13%2F%E8%BD%AC%E8%BD%BD%E5%87%A0%E5%BC%A0%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E8%B6%85%E5%85%A8%EF%BC%89%E6%B5%81%E7%A8%8B%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[在Aaron个人技术博客看到十张前端思维导图，涉及到的基础知识比较全面，温故知新的我就当个笔记整理了下来。 javascript数据类型 javascript数组 javascript运算符 javascript正则表达式 javascript字符串函数 window对象 DOM基本操作 javascript变量 javascript函数基础 javascript流程控制]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[联动菜单LinkageView]]></title>
     <url>%2F2017%2F09%2F10%2F%E8%81%94%E5%8A%A8%E8%8F%9C%E5%8D%95LinkageView%2F</url>
     <content type="text"><![CDATA[LinkageView联动视图，有网易云音乐效果及网易新闻效果 GitHub地址 Support 支持snpkit框架 两种页面切换效果 支持修改各种颜色 支持自定义组件内容 支持两种菜单多屏及单屏 支持滑动条动态自适应标题长度 组头和内容分开编码，易于扩展，自己也会持续更新 Usage12//默认效果：一屏菜单 可以省略参数headerView = LVHeaderView.init(styleMore: false) 12//多屏菜单效果headerView = LVHeaderView.init(styleMore: true) 12//放大缩小切换效果效果 默认styleLine为 true 即滚动条效果headerView = LVHeaderView.init(styleMore: true, styleLine: false) 具体使用1234567891011121314151617181920let arr = ["个性推荐", "歌单", "主播平台", "排行榜"]headerView = LVHeaderView.init(styleMore: false)view.addSubview(headerView)headerView.delegate = selfheaderView.dataAry = arrheaderView.snp.makeConstraints &#123; (make) inmake.top.equalTo(64)make.left.right.equalToSuperview()make.height.equalTo(40)&#125;contentView = LVContentView()view.addSubview(contentView)self.contentView.dataArr = arrcontentView.contentDelegate = selfcontentView.snp.makeConstraints &#123; (make) inmake.top.equalTo(headerView.snp.bottom)make.bottom.right.left.equalToSuperview()&#125; 代理方法12345678910111213//头组件代理方法 实现标题点击的事件传递 使得内容组件响应滚动extension ViewController: LVHeaderViewDelegate &#123;func selectdLVHeaderView(view: LVHeaderView, selectedIndex: Int) &#123;let indexPath = IndexPath(item: selectedIndex, section: 0)contentView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)&#125;&#125;//内容组件代理方法 实现与组头的联动效果extension ViewController: LVcontentDelegate &#123;func contentView(_ contentView: LVContentView,nowPage: Int, fromIndex: Int, toIndex: Int, scale: CGFloat) &#123;headerView.scrollTodo(nowPage: nowPage, fromIndex: fromIndex, toIndex: toIndex, scale: scale)&#125;&#125;]]></content>
